@@ -6,7 +6,7 @@ const router = Router();
 /**
  * @GET
  * @desc // get all Post
- * @access private
+ * @access public
  */
 
 router.get('/',getAllPosts)
@@ -14,7 +14,7 @@ router.get('/',getAllPosts)
 /**
  * @GET
  * @desc // get one Post
- * @access private
+ * @access public
  */
 
 router.get('/:id',getOnePost)
@@ -22,7 +22,7 @@ router.get('/:id',getOnePost)
 /**
  * @POST
  * @desc // create Post
- * @access private
+ * @access public
  */
 
 router.post('/',createPost)
@@ -30,7 +30,7 @@ router.post('/',createPost)
 /**
  * @PUTCH
  * @desc // update Post
- * @access private
+ * @access public
  */
 
 router.post('/update/:id',updatePost)
@@ -38,7 +38,7 @@ router.post('/update/:id',updatePost)
 /**
  * @DELETE
  * @desc // delete Post
- * @access private
+ * @access public
  */
 
 router.post('/delete/:id'),deletePost

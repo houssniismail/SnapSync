@@ -1,40 +1,44 @@
 import { Schema, model, Model } from "mongoose";
 
-interface typePost {
-    Creator: string,
+interface TypePost {
     Title: string,
     Message: string,
-    Tags: string,
-    Image: string
+    Image: string,
+    Comment: string[],
+    Like: string[]
 }
 
-const postSchema: Schema<typePost> = new Schema({
-    Creator: {
-        type: String,
-        require: true,
-        trim: true
-    },
+const postSchema: Schema<TypePost> = new Schema({
     Title: {
         type: String,
-        require: true,
+        required: true,
         trim: true
     },
     Message: {
         type: String,
-        require: true,
-        trim: true
-    },
-    Tags: {
-        type: String,
-        require: true,
+        required: true,
         trim: true
     },
     Image: {
         type: String,
-        require: true,
+        required: true,
         trim: true
-    }
+    },
+    Comment: [
+        {
+            type: String,
+            required: false,
+            trim: true
+        }
+    ],
+    Like: [
+        {
+            type: String,
+            required: false,
+            trim: true
+        }
+    ]
 });
 
-const PostModel: Model<typePost> = model('post', postSchema)
+const PostModel: Model<TypePost> = model<TypePost>('post', postSchema);
 export default PostModel;
