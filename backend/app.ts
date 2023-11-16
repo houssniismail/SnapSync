@@ -1,8 +1,14 @@
-const express = require('express')
-
-
+import express from "express";
+import router from "./router/index";
+import dotenv from "dotenv";
+dotenv.config();
+const port = process.env.port || 3000;
+const { connectDB } = require('./config/DB')
 const app = express();
-
-const port = 5000;
-
-app.listen(port, () => console.log(`starting on port  ${port}`))
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+connectDB()
+app.use('/',router)
+app.listen(port, () => {
+    console.log(`starting on port http://localhost:${port}`)
+})
