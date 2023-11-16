@@ -9,7 +9,7 @@ const router = Router();
  * @access public
  */
 
-router.get('/',getAllPosts)
+router.get('/getAll',getAllPosts)
 
 /**
  * @GET
@@ -17,7 +17,7 @@ router.get('/',getAllPosts)
  * @access public
  */
 
-router.get('/:id',getOnePost)
+router.get('/getOne/:id',getOnePost)
 
 /**
  * @POST
@@ -25,7 +25,7 @@ router.get('/:id',getOnePost)
  * @access public
  */
 
-router.post('/',createPost)
+router.post('/Create',createPost)
 
 /**
  * @PUTCH

@@ -27,8 +27,20 @@ const getAllPosts = asynchandler(async (req: Request, res: Response) => {
  * @access public
  */
 
-const getOnePost = asynchandler(async (req, res) => {
+const getOnePost = (async (req: Request, res: Response) => {
+    const postId = req.params.id;
+    try {
+        const post: dataType | null = await PostModel.findById(postId);
 
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        res.status(200).json(post);
+    } catch (err) {
+        res.status(500).json({ message: 'Server error' });
+    }
+    
+    
 })
 
 /**
