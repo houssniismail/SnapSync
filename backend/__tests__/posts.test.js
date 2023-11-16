@@ -1,0 +1,1 @@
+import { getAllPosts, getOnePost, createPost, updateComment , updatePost, deletePost } from "../controller/PostController"
