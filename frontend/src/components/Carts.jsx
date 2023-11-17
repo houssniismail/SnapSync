@@ -1,9 +1,8 @@
 import React from 'react'
 import { Icon } from '@iconify/react';
-
-const Cart: React.FC = () => {
-    return (
-        <>
+const Carts = () => {
+  return (
+    <div className='grid md:grid-cols-2 py-4 '>
         <div className='m-2 shadow-xl rounded-b-2xl'>
             <div className='relative '>
                 <img className='w-[100%] rounded-t-2xl' src="postimage.jpg" alt="" />
@@ -39,8 +38,8 @@ const Cart: React.FC = () => {
                 </div>
             </div>
         </div>
-        </>
-    )
+    </div >
+  )
 }
 
-export default Cart
+export default Carts
