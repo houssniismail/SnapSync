@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react'
 
-const Navbar: React.FC = () => {
-
+const Navbar = () => {
     return (
         <>
             <div className=" border w-5/6 my-6 p-4 rounded-xl shadow shadow-gray-300">
@@ -13,4 +12,4 @@ const Navbar: React.FC = () => {
     )
 }
 
-export default Navbar;
+export default Navbar

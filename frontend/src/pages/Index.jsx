@@ -1,8 +1,7 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Form from "../components/Form";
-import Listcart from "../components/Listcart";
-const Home: React.FC = () => {
+import React from 'react'
+import { Navbar,Carts,Form } from '../components'
+
+const Index = () => {
     return (
         <div>
             <div className=" flex justify-center">
@@ -10,7 +9,7 @@ const Home: React.FC = () => {
             </div>
             <div className=" flex flex-col justify-center md:justify-evenly md:flex-row ">
                 <div className="w-[100%] md:w-3/6">
-                    <Listcart />
+                    <Carts />
                 </div>
                 <div className=" w-[100%] md:w-1/4">
                     <Form />
@@ -19,4 +18,5 @@ const Home: React.FC = () => {
         </div>
     )
 }
-export default Home
+
+export default Index
