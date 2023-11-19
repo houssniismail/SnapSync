@@ -5,13 +5,16 @@ dotenv.config();
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import postRoute from './routes/index.js';
 import {connectDB} from './config/db.js'
-
+import cors from 'cors'
 const port = process.env.PORT || 5000;
 
 connectDB();
 
 const app = express();
-
+app.use(cors({
+  origin: 'http://localhost:3000', 
+  credentials: true,
+}));
 app.use('/api',postRoute)
 
 if (process.env.NODE_ENV === 'production') {

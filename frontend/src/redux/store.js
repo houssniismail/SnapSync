@@ -1,14 +1,14 @@
 // store.js
-import { createStore, combineReducers } from "redux";
-import postReducer from "./reducers/postReducer";
-
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { postReducer, fetchDataReducer } from "./reducers";
+import thunk from 'redux-thunk';
 // Combine reducers if there are multiple reducers
 const rootReducer = combineReducers({
   posts: postReducer,
-  // Other reducers can be added here
+  fetchDataReducer
 });
 
 // Create Redux store
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 export default store;

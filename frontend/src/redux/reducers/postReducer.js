@@ -1,5 +1,5 @@
 // postReducer.js
-import { ADD_POST, DELETE_POST, FETCH_POSTS, UPDATE_POST } from "../type/actionTypes";
+import { ADD_POST, DELETE_POST, UPDATE_POST } from "../type/actionTypes";
 
 // Initial state
 const initialState = {
@@ -22,13 +22,9 @@ const postReducer = (state = initialState, action) => {
     case UPDATE_POST:
       // Your logic to update a post
       return state;
-    case FETCH_POSTS:
-      return {
-        
-      }
     default:
       return state;
   }
 };
 
-export default postReducer;
+export  {postReducer};

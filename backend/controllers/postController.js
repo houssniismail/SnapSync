@@ -29,7 +29,7 @@ const createPost = asyncHandler(async (req, res) => {
 // @access  Public
 const getPosts = asyncHandler(async (req, res) => {
     try {
-        const posts = await find({});
+        const posts = await Post.find({});
         res.json(posts);
     } catch (error) {
         res.status(500).json({ message: 'Failed to fetch posts', error: error.message });
