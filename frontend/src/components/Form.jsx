@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import { addPost, updatePost } from '../redux/actions/postAction'
-import postReducer from '../redux/reducers/postReducer'
+import {postReducer} from '../redux/reducers/postReducer'
 const initialState = {
     posts: [],
 };
