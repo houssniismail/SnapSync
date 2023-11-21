@@ -1,9 +1,6 @@
 import { FETCH_DATA_FAILURE ,FETCH_DATA_REQUEST,FETCH_DATA_SUCCESS} from "../type/fetchActionTypes";
-
-
-
 const initialState = {
-    data: null,
+    data: [],
     loading: false,
     error: null,
   };
