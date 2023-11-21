@@ -8,11 +8,12 @@ const initialState = {
 
 // Reducer function
 const postReducer = (state = initialState, action) => {
+  console.log(state)
   switch (action.type) {
     case ADD_POST:
         return {
           ...state,
-          posts: [...state.posts, action.payload],
+          posts: [...state.posts, action.payload]
         };
     case DELETE_POST:
       return {

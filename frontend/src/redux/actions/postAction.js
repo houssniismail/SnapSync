@@ -8,6 +8,11 @@ const addPost = (post) => {
     payload: post,
   };
 };  
+const addPostAsync = () => {
+  return (dispatch) => {
+    
+  }
+}
 // delete post
 const deletePost = (postId) => {
   return {
