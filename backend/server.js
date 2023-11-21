@@ -8,9 +8,11 @@ import {connectDB} from './config/db.js'
 import cors from 'cors'
 const port = process.env.PORT || 5000;
 
+
 connectDB();
 
 const app = express();
+app.use(express.json());
 app.use(cors({
   origin: 'http://localhost:3000', 
   credentials: true,
