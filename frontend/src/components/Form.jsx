@@ -5,30 +5,30 @@ import { postDataThunk } from '../redux/thinks/fetchDataThunk';
 
 const Form = () => {
     const dispatch = useDispatch();
-    const [post, setPost] = useState({});
-    const [tags, setTags] = useState([])
+    const [post, setPost] = useState({
+        Creator: '',
+        Message: '',
+        Tags: [],
+        Title: ''
+    });
     const handleChange = (e) => {
-        setPost((prevPost) => ({
-            ...prevPost,
-            [e.target.id]: e.target.value,
-        }));
+        if (e.target.name === 'Tags') {
+            const tagsArray = e.target.value.split(',');
+            setPost({
+                ...post,
+                [e.target.name]: tagsArray
+            });
+        } else {
+            setPost({
+                ...post,
+                [e.target.name]: e.target.value
+            });
+        }
     };
 
-    const handleAddTag = (e) => {
-        if (e.target.value !== '') {
-            setTags((prevPost) => ([
-                ...prevPost,
-                e.target.value,
-            ]));
-
-        }
-        console.log(tags);
-    }
-
     const handlePostData = () => {
-        dispatch(addPost(post));
-        console.log(dispatch(addPost(post)));
-        dispatch(postDataThunk(post));
+        // dispatch(addPost(post))
+        dispatch(postDataThunk(post))
     };
 
     return (
@@ -39,20 +39,20 @@ const Form = () => {
                 </div>
                 <div className="">
                     <div className=" p-2 flex justify-center">
-                        <input onChange={(e) => handleChange(e)} id='Creator' className="border outline-none w-[80%] h-9 rounded-md" placeholder="Creator" type="text" />
+                        <input onChange={(e) => handleChange(e)} id='Creator' name="Creator" className="border outline-none w-[80%] h-9 rounded-md" placeholder="Creator" type="text" />
                     </div>
                     <div className=" p-2 flex justify-center">
-                        <input onChange={(e) => handleChange(e)} id='Title' className="border outline-none w-[80%] h-9 rounded-md" placeholder="Title" type="text" />
+                        <input onChange={(e) => handleChange(e)} id='Title' name='Title' className="border outline-none w-[80%] h-9 rounded-md" placeholder="Title" type="text" />
                     </div>
                     <div className=" p-2 flex justify-center">
-                        <input onChange={(e) => handleChange(e)} id='Message' className=" border outline-none w-[80%] h-9 rounded-md" placeholder="Message" type="text" />
+                        <input onChange={(e) => handleChange(e)} id='Message' name='Message' className=" border outline-none w-[80%] h-9 rounded-md" placeholder="Message" type="text" />
                     </div>
-                    <div  className=" p-2 flex justify-center" >
-                        <input defaultValue={tags} onKeyUp={(e) => handleAddTag(e)} onChange={(e) => handleChange(e)} id='Tags' className="border outline-none w-[80%] h-9 rounded-md" placeholder="Tags" type="text" />
-                        <span>{tags.map((item)=>(item))}</span>
+                    <div className=" p-2 flex justify-center" >
+                        <input onChange={(e) => handleChange(e)} id='Tags' name='Tags' className="border outline-none w-[80%] h-9 rounded-md" placeholder="Tags" type="text" />
+                        {/* <span>{tags.map((item) => (item))}</span> */}
                     </div>
                     <div className=" p-2 flex justify-center">
-                        <input onChange={(e) => handleChange(e)} id='image' className=" w-[80%] h-9" type="file" />
+                        <input onChange={(e) => handleChange(e)} id='image' name='image' className=" w-[80%] h-9" type="file" />
                     </div>
                     <div className=" p-2 flex justify-center">
                         <button onClick={() => handlePostData()} className="border outline-none w-[80%] h-9 bg-[#3d4fb0] rounded-md text-white">SUBMIT</button>
